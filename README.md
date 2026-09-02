@@ -133,7 +133,7 @@ Critical actions require administrator approval before execution, ensuring that 
 | Database         | PostgreSQL           |
 | Machine Learning | Python               |
 | LLM              | Large Language Model |
-| Operating System | Linux                |
+| Operating System | Window               |
 | API              | REST API             |
 | Version Control  | Git & GitHub         |
 
@@ -330,7 +330,6 @@ AIOpsGuard/
 * Node.js
 * PostgreSQL
 * Git
-* Linux environment recommended
 
 ### Clone Repository
 
@@ -347,12 +346,6 @@ python -m venv venv
 ```
 
 Activate the virtual environment:
-
-**Linux/macOS**
-
-```bash
-source venv/bin/activate
-```
 
 **Windows**
 
