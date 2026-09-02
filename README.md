@@ -334,7 +334,7 @@ AIOpsGuard/
 ### Clone Repository
 
 ```bash
-git clone <repository-url>
+git clone <https://github.com/vani020/AIOpsGuard.git>
 cd AIOpsGuard
 ```
 
