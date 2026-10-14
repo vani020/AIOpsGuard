@@ -10,10 +10,8 @@ Failure risk (0..1) projects CPU/memory 10 samples ahead using a linear trend.
 import os
 import threading
 from dataclasses import dataclass, field
-
 import numpy as np
 from sklearn.ensemble import IsolationForest
-
 FEATURES = ["cpu_percent", "memory_percent", "disk_percent", "process_count", "load_avg"]
 MIN_TRAIN = 40
 RETRAIN_EVERY = 30
