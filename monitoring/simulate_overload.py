@@ -1,13 +1,3 @@
-"""Controlled fault injection for demos/testing.  Always stoppable with Ctrl+C.
-
-    python -m monitoring.simulate_overload --mode cpu --duration 60
-    python -m monitoring.simulate_overload --mode memory --target 88
-    python -m monitoring.simulate_overload --mode logs
-    python -m monitoring.simulate_overload --mode all
-
-WARNING: cpu mode loads every core and memory mode fills RAM up to --target percent.
-Save your work first and keep the target below ~90%.
-"""
 import argparse
 import multiprocessing as mp
 import random
