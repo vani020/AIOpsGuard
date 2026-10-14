@@ -10,10 +10,8 @@ import re
 import socket
 import time
 from pathlib import Path
-
 import psutil
 import requests
-
 DEFAULT_LOG = str(Path(__file__).with_name("demo_app.log"))
 LEVEL_RE = re.compile(r"\b(DEBUG|INFO|WARNING|WARN|ERROR|CRITICAL|FATAL)\b")
 NEVER_KILL = {"system", "registry", "systemd", "init", "sshd", "svchost.exe", "lsass.exe", "csrss.exe",
