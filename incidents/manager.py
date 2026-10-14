@@ -5,8 +5,6 @@ from database.db import fetch_all, fetch_one, execute, transaction
 
 STATUSES = ("open", "investigating", "pending_approval", "resolved", "closed")
 SEVERITY_RANK = {"low": 0, "medium": 1, "high": 2, "critical": 3}
-
-
 def severity_from_risk(risk):
     if risk >= 0.85:
         return "critical"
