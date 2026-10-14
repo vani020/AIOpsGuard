@@ -12,8 +12,6 @@ load_dotenv()
 TEST_URL = os.getenv("TEST_DATABASE_URL", "postgresql://postgres:postgres@localhost:5432/aiopsguard_test")
 os.environ["DATABASE_URL"] = TEST_URL          # must happen before any database import
 os.environ.pop("ANTHROPIC_API_KEY", None)      # tests always use the rule-based RCA
-
-
 def _db_available():
     try:
         psycopg2.connect(TEST_URL, connect_timeout=3).close()
