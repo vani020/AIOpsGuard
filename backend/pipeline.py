@@ -1,4 +1,4 @@
-"""Telemetry pipeline: store -> detect (ML + logs) -> incident -> (RCA scheduled by the API layer)."""
+
 from database import repository as repo
 from incidents import manager
 from ml import detector, log_analyzer
