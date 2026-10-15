@@ -1,4 +1,4 @@
-"""AIOpsGuard FastAPI gateway.   Run from the project root:  uvicorn backend.main:app --reload --port 8000"""
+
 import logging
 from contextlib import asynccontextmanager
 from datetime import datetime
