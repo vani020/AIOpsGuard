@@ -1,6 +1,3 @@
--- Analysis queries for the report / viva.  psql -d aiopsguard -f database/queries.sql
-
--- 1. Current health of every server (view)
 SELECT hostname, role, status, cpu_percent, memory_percent, failure_risk, open_incidents FROM v_server_overview;
 
 -- 2. Average / peak CPU & memory per server in the last hour (join + aggregation)

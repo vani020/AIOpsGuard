@@ -2,7 +2,6 @@
 import json
 import logging
 import os
-
 from database import repository as repo
 from incidents import manager
 from ml.detector import CPU_HARD, MEM_HARD
@@ -16,7 +15,6 @@ CATEGORIES = ["cpu_saturation", "memory_pressure", "disk_full", "application_err
 
 SYSTEM_PROMPT = ("You are a senior site-reliability engineer. Diagnose infrastructure incidents strictly from the "
                  "evidence provided. Never invent numbers or processes. Reply with a single JSON object only.")
-
 
 def collect_evidence(incident_id):
     inc = manager.get_incident(incident_id)
@@ -42,7 +40,6 @@ def collect_evidence(incident_id):
         "logs": [{"level": l["level"], "message": l["message"][:200]} for l in logs],
     }
 
-
 def classify(ev):
     last = ev["metrics"][-1] if ev["metrics"] else {"cpu_percent": 0, "memory_percent": 0, "disk_percent": 0}
     if last["disk_percent"] >= 95:
@@ -53,7 +50,6 @@ def classify(ev):
     if any(l["level"] in ("ERROR", "CRITICAL") for l in ev["logs"]):
         return "application_errors"
     return "general_anomaly"
-
 
 def _safe_actions(actions, ev):
     """Only allow killing processes that were actually observed, and never protected/system ones."""
@@ -70,7 +66,6 @@ def _safe_actions(actions, ev):
         out.append({"action_type": "kill_process", "pid": pid, "name": name,
                     "reason": str(a.get("reason") or "Suggested by RCA")[:300]})
     return out[:2]
-
 
 def fallback_analysis(ev, similar):
     cat = classify(ev)
@@ -112,7 +107,6 @@ def fallback_analysis(ev, similar):
     return {"category": cat, "root_cause": cause, "explanation": explanation, "recommendation": steps,
             "suggested_actions": actions}
 
-
 def _call_llm(prompt):
     key = os.getenv("ANTHROPIC_API_KEY")
     if not key:
@@ -123,12 +117,10 @@ def _call_llm(prompt):
                                  system=SYSTEM_PROMPT, messages=[{"role": "user", "content": prompt}])
     return "".join(b.text for b in msg.content if getattr(b, "type", "") == "text")
 
-
 def _parse_json(text):
     text = text.strip()
     start, end = text.find("{"), text.rfind("}")
     return json.loads(text[start:end + 1])
-
 
 def _build_prompt(ev, similar):
     return (

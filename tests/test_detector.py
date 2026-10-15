@@ -2,15 +2,12 @@ import random
 
 from ml import detector
 
-
 def metric(cpu=20, mem=45, disk=40, procs=120, load=0.8):
     return {"cpu_percent": cpu, "memory_percent": mem, "disk_percent": disk, "process_count": procs, "load_avg": load}
-
 
 def normal_history(n=60, seed=1):
     r = random.Random(seed)
     return [metric(r.gauss(20, 3), r.gauss(45, 2), 40, 120 + r.randint(-2, 2), r.gauss(0.8, 0.1)) for _ in range(n)]
-
 
 def test_normal_sample_is_not_anomaly():
     detector.reset()

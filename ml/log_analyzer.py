@@ -1,6 +1,5 @@
 """Lightweight log anomaly scoring (error volume + known failure signatures)."""
 import re
-
 ERROR_LEVELS = {"ERROR", "CRITICAL"}
 SIGNATURES = {
     r"out of memory|\boom\b|cannot allocate|memoryerror": "memory exhaustion",
@@ -12,7 +11,6 @@ SIGNATURES = {
     r"too many open files": "file descriptor exhaustion",
 }
 LOG_ANOMALY_THRESHOLD = 0.5
-
 
 def analyze_logs(logs):
     """logs: list of dicts with 'level' and 'message'. Returns {score 0..1, reasons, error_count}."""
