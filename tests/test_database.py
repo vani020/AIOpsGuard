@@ -1,6 +1,5 @@
 import psycopg2
 import pytest
-
 from database import repository as repo
 from tests.conftest import make_payload, requires_db
 
