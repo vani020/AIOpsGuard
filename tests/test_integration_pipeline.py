@@ -1,4 +1,4 @@
-"""End-to-end: telemetry -> ML -> incident -> RCA -> human approval -> agent action -> recovery."""
+
 import random
 
 from tests.conftest import make_payload, requires_db
