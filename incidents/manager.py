@@ -14,7 +14,6 @@ def severity_from_risk(risk):
         return "medium"
     return "low"
 
-
 def open_or_update(server_id, metric_id, risk, reasons):
     """Return (incident, created). Only one active incident per server; severity can only escalate."""
     sev = severity_from_risk(risk)
