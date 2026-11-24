@@ -3,7 +3,6 @@ from psycopg2.extras import Json, execute_values
 
 from database.db import fetch_all, fetch_one, execute, transaction
 
-
 def store_telemetry(hostname, ip_address, os_name, role, metrics, processes, logs):
     """Atomically store server + metric + processes + logs. Returns (server_id, metric_id)."""
     with transaction() as cur:
