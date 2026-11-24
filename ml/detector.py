@@ -23,7 +23,6 @@ DISK_HARD = 95.0
 _models = {}
 _lock = threading.Lock()
 
-
 @dataclass
 class DetectionResult:
     is_anomaly: bool
@@ -52,7 +51,6 @@ def _train(history):
     std = np.maximum(std, np.maximum(0.1 * np.abs(mean), 1.0))  # floor avoids absurd z-scores
     model = IsolationForest(n_estimators=100, contamination=0.02, random_state=42).fit(X)
     return {"model": model, "mean": mean, "std": std, "since_train": 0}
-
 
 def _norm(v):
     return min(max((v - 50.0) / 50.0, 0.0), 1.0)
