@@ -1,6 +1,5 @@
 -- AIOpsGuard relational schema (PostgreSQL 13+). Idempotent: safe to re-run.
 -- Normalised to 3NF: processes reference metrics (not servers) so server_id is not duplicated.
-
 CREATE TABLE IF NOT EXISTS servers (
     server_id   SERIAL PRIMARY KEY,
     hostname    VARCHAR(100) NOT NULL UNIQUE,
