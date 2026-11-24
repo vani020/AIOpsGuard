@@ -12,7 +12,6 @@ CREATE TABLE IF NOT EXISTS servers (
     last_seen   TIMESTAMPTZ,
     created_at  TIMESTAMPTZ NOT NULL DEFAULT now()
 );
-
 CREATE TABLE IF NOT EXISTS metrics (
     metric_id      BIGSERIAL PRIMARY KEY,
     server_id      INT NOT NULL REFERENCES servers(server_id) ON DELETE CASCADE,
