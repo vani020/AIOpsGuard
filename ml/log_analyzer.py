@@ -11,7 +11,6 @@ SIGNATURES = {
     r"too many open files": "file descriptor exhaustion",
 }
 LOG_ANOMALY_THRESHOLD = 0.5
-
 def analyze_logs(logs):
     """logs: list of dicts with 'level' and 'message'. Returns {score 0..1, reasons, error_count}."""
     errors = [l for l in logs if str(l.get("level", "")).upper() in ERROR_LEVELS]
