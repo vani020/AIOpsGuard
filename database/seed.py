@@ -17,6 +17,7 @@ HISTORY = [
      "Increase pool size, add retry with backoff, and alert on pool utilisation above 80%."),
 ]
 
+
 def seed():
     init_db()
     with transaction() as cur:
